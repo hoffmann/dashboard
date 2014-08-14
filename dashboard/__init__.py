@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, url_for, redirect
+from flask import Flask, request, jsonify, url_for, redirect, render_template
 from dashboard.database import db_session
 from dashboard.models import Monitor
 app = Flask(__name__)
@@ -13,7 +13,7 @@ def shutdown_session(exception=None):
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return render_template('base.html')
 
 
 @app.route('/api/')
